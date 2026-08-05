@@ -412,30 +412,19 @@ p {
   flex-shrink: 0;
 }
 
-.brand-mark {
-  font-size: 1.75rem;
+.brand-logo {
+  display: block;
 
-  font-weight: 900;
+  /* fluid: shrinks with the viewport, never past a legible floor */
+  width: auto;
 
-  letter-spacing: -0.06em;
+  height:
+    clamp(30px, 4.4vw, 44px);
 
-  color: var(--navy-700);
-}
+  max-width:
+    min(58vw, 210px);
 
-.brand-mark span {
-  color: var(--orange-500);
-}
-
-.brand-sub {
-  font-size: 0.73rem;
-
-  font-weight: 700;
-
-  line-height: 1.25;
-
-  color: #718093;
-
-  max-width: 145px;
+  object-fit: contain;
 }
 
 .site-nav {
@@ -1015,120 +1004,31 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
-.desk-scene {
-  position: absolute;
+.problem-figure {
+  margin: 0;
 
-  inset: 0;
+  /* the photo drives the height, so drop the placeholder floor */
+  min-height: 0;
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  background:
-    radial-gradient(
-      circle at 50% 45%,
-      rgba(255,255,255,.1),
-      transparent 32%
-    );
+  aspect-ratio: 4 / 3;
 }
 
-.agent-figure {
-  width: 145px;
-  height: 145px;
+.problem-figure img {
+  display: block;
 
-  display: grid;
+  width: 100%;
+  height: 100%;
 
-  place-items: center;
+  object-fit: cover;
 
-  border-radius: 50%;
+  object-position: center;
 
-  background:
-    rgba(255,255,255,.1);
-
-  border:
-    1px solid
-    rgba(255,255,255,.16);
-
-  font-size: 5rem;
-
-  box-shadow:
-    0 25px 60px
-    rgba(0,0,0,.25);
+  transition:
+    transform 0.6s ease;
 }
 
-.task-chip {
-  position: absolute;
-
-  padding:
-    10px 14px;
-
-  border-radius: 12px;
-
-  background:
-    rgba(255,255,255,.94);
-
-  color: var(--navy-900);
-
-  font-size: 0.78rem;
-
-  font-weight: 800;
-
-  box-shadow:
-    0 12px 32px
-    rgba(0,0,0,.16);
-
-  animation:
-    taskFloat
-    5s
-    ease-in-out
-    infinite;
-}
-
-.t1 {
-  left: 9%;
-  top: 16%;
-}
-
-.t2 {
-  right: 8%;
-  top: 21%;
-
-  animation-delay: -1s;
-}
-
-.t3 {
-  right: 4%;
-  bottom: 20%;
-
-  animation-delay: -2s;
-}
-
-.t4 {
-  left: 6%;
-  bottom: 16%;
-
-  animation-delay: -3s;
-}
-
-.t5 {
-  left: 38%;
-  top: 7%;
-
-  animation-delay: -4s;
-}
-
-@keyframes taskFloat {
-  0%,
-  100% {
-    transform:
-      translateY(0);
-  }
-
-  50% {
-    transform:
-      translateY(-8px);
-  }
+.problem-figure:hover img {
+  transform: scale(1.02);
 }
 
 
@@ -2065,6 +1965,13 @@ p {
    ========================================================= */
 
 .vision-section {
+  position: relative;
+
+  /* keeps the negative-z overlay inside this section */
+  isolation: isolate;
+
+  overflow: hidden;
+
   color: white;
 
   background:
@@ -2073,6 +1980,47 @@ p {
       #0c2038,
       #173e68 65%,
       #0c2038
+    );
+}
+
+/* photographic overlay — the work BaMo is being built to absorb */
+.vision-section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    url("assets/illustrations/agent-overwhelmed.jpg")
+    center / cover
+    no-repeat;
+
+  opacity: 0.18;
+
+  filter:
+    grayscale(45%)
+    contrast(104%);
+}
+
+/* scrim so the copy stays readable over the photo */
+.vision-section::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(12,32,56,.95) 0%,
+      rgba(12,32,56,.86) 45%,
+      rgba(23,62,104,.7) 100%
     );
 }
 
@@ -2449,6 +2397,47 @@ p {
   gap: 25px;
 }
 
+/* the logo is navy + orange on transparent, so it needs a light
+   plate to stay readable on the dark footer */
+.footer-brand {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 10px 16px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,.94);
+
+  box-shadow:
+    0 10px 26px
+    rgba(0,0,0,.28);
+
+  transition:
+    transform 0.3s ease;
+}
+
+.footer-brand:hover {
+  transform:
+    translateY(-2px);
+}
+
+.footer-brand img {
+  display: block;
+
+  width: auto;
+
+  height:
+    clamp(28px, 3.6vw, 36px);
+
+  max-width:
+    min(60vw, 190px);
+
+  object-fit: contain;
+}
+
 .footer p {
   margin: 0;
 
@@ -2717,10 +2706,6 @@ p {
    ========================================================= */
 
 @media (max-width: 900px) {
-
-  .brand-sub {
-    display: none;
-  }
 
   .menu-toggle {
     display: inline-flex;
@@ -3078,8 +3063,9 @@ p {
     min-height: 68px;
   }
 
-  .brand-mark {
-    font-size: 1.55rem;
+  .brand-logo {
+    /* keep the "Real Estate Made Simple" lockup legible on phones */
+    height: clamp(30px, 9vw, 38px);
   }
 
   .hero {
@@ -3165,38 +3151,11 @@ p {
     min-height: 400px;
   }
 
-  .agent-figure {
-    width: 115px;
-    height: 115px;
+  .problem-figure {
+    min-height: 0;
 
-    font-size: 4rem;
-  }
-
-  .task-chip {
-    font-size: .66rem;
-
-    padding:
-      8px 10px;
-  }
-
-  .t1 {
-    left: 4%;
-  }
-
-  .t2 {
-    right: 3%;
-  }
-
-  .t3 {
-    right: 2%;
-  }
-
-  .t4 {
-    left: 3%;
-  }
-
-  .t5 {
-    left: 30%;
+    /* taller crop keeps the agent in frame on narrow screens */
+    aspect-ratio: 5 / 4;
   }
 
 
