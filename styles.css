@@ -1964,26 +1964,28 @@ p {
    14. VISION
    ========================================================= */
 
+/* full-bleed BaMo building concept photo as the section background */
 .vision-section {
   position: relative;
 
-  /* keeps the negative-z overlay inside this section */
+  /* keeps the negative-z layers inside this section */
   isolation: isolate;
 
   overflow: hidden;
 
   color: white;
 
+  padding:
+    clamp(110px, 13vw, 180px) 0;
+
   background:
-    linear-gradient(
-      140deg,
-      #0c2038,
-      #173e68 65%,
-      #0c2038
-    );
+    url("assets/illustrations/bamo-building.jpg")
+    center / cover
+    no-repeat
+    #0c2038;
 }
 
-/* photographic overlay — the work BaMo is being built to absorb */
+/* cinematic grade: cool navy at the edges, warm lobby glow in the middle */
 .vision-section::before {
   content: "";
 
@@ -1994,18 +1996,24 @@ p {
   z-index: -2;
 
   background:
-    url("assets/illustrations/agent-overwhelmed.jpg")
-    center / cover
-    no-repeat;
-
-  opacity: 0.18;
-
-  filter:
-    grayscale(45%)
-    contrast(104%);
+    /* warm lobby light, kept low and centred on the entrance */
+    radial-gradient(
+      ellipse 55% 40% at 50% 86%,
+      rgba(232,126,34,.34) 0%,
+      rgba(191,101,22,.15) 45%,
+      transparent 72%
+    ),
+    /* navy grade, heaviest through the band the copy sits in */
+    linear-gradient(
+      180deg,
+      rgba(6,17,32,.80) 0%,
+      rgba(7,19,36,.86) 30%,
+      rgba(7,19,36,.84) 62%,
+      rgba(4,12,26,.90) 100%
+    );
 }
 
-/* scrim so the copy stays readable over the photo */
+/* vignette + top scrim so the header and copy keep their contrast */
 .vision-section::after {
   content: "";
 
@@ -2016,81 +2024,57 @@ p {
   z-index: -1;
 
   background:
-    linear-gradient(
-      100deg,
-      rgba(12,32,56,.95) 0%,
-      rgba(12,32,56,.86) 45%,
-      rgba(23,62,104,.7) 100%
+    radial-gradient(
+      ellipse at 50% 50%,
+      transparent 42%,
+      rgba(4,12,24,.62) 100%
     );
 }
 
-.vision-grid {
-  display: grid;
+.vision-inner {
+  display: flex;
 
-  grid-template-columns:
-    minmax(0, 0.75fr)
-    minmax(450px, 1.25fr);
-
-  gap: clamp(50px, 7vw, 95px);
+  flex-direction: column;
 
   align-items: center;
+
+  text-align: center;
+}
+
+.vision-copy {
+  max-width: 760px;
+}
+
+.vision-copy .section-kicker {
+  justify-content: center;
 }
 
 .vision-copy h2,
 .vision-copy p {
   color: white;
+
+  text-shadow:
+    0 2px 24px
+    rgba(4,12,24,.55);
 }
 
 .vision-copy p {
+  margin-left: auto;
+  margin-right: auto;
+
   color:
-    rgba(235,244,252,.72);
+    rgba(240,246,252,.86);
 }
 
-.building-wrap {
-  position: relative;
-}
+.vision-note {
+  margin-top: 30px;
 
-.building-wrap::before {
-  content: "";
+  font-size: 0.78rem;
 
-  position: absolute;
+  letter-spacing: 0.04em;
 
-  width: 60%;
-  height: 60%;
-
-  right: -6%;
-  top: 5%;
-
-  border-radius: 50%;
-
-  background:
-    rgba(232,119,34,.14);
-
-  filter:
-    blur(75px);
-}
-
-.building-svg {
-  position: relative;
-
-  z-index: 1;
-
-  width: 100%;
-
-  filter:
-    drop-shadow(
-      0 28px 55px
-      rgba(0,0,0,.34)
-    );
-
-  transition:
-    transform 0.5s ease;
-}
-
-.building-wrap:hover .building-svg {
-  transform:
-    translateY(-8px)
-    scale(1.01);
+  color:
+    rgba(235,244,252,.55) !important;
 }
 
 
@@ -2843,7 +2827,6 @@ p {
 
 
   .split,
-  .vision-grid,
   .company-grid {
     grid-template-columns: 1fr;
   }
@@ -3017,8 +3000,10 @@ p {
     gap: 45px;
   }
 
-  .vision-grid {
-    gap: 50px;
+  .vision-section {
+    /* the crop is severe at phone widths — hold the entrance and the
+       signage in frame, and keep the section breathing */
+    background-position: 50% 42%;
   }
 
   .cta-inner {
@@ -3057,6 +3042,12 @@ p {
   .section {
     padding:
       75px 0;
+  }
+
+  /* full-bleed photo section needs more room than a plain content section */
+  .vision-section {
+    padding:
+      96px 0;
   }
 
   .nav-wrap {
