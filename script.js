@@ -347,7 +347,160 @@ document.querySelectorAll("img").forEach((image) => {
 
 
 /* =========================================================
-   10. READY
+   10. CONTACT FORM
+   ========================================================= */
+
+/* Posts to the BaMo lead-intake webhook in n8n, which writes the lead
+   to the CRM and emails the team. Same endpoint the landing page uses;
+   fields beyond fullName/email/phone/company/city are kept in the
+   lead's metadata. */
+const LEAD_INTAKE_WEBHOOK_URL =
+  "https://n8n-bahaymo.onrender.com/webhook/bamo-landing-lead";
+
+const contactForm = document.getElementById("contactForm");
+const contactStatus = document.getElementById("contactStatus");
+
+function setFieldError(input, message) {
+  const field = input.closest(".field");
+
+  if (!field) return;
+
+  field.classList.toggle("invalid", Boolean(message));
+
+  let error = field.querySelector(".field-error");
+
+  if (!message) {
+    if (error) error.remove();
+    input.removeAttribute("aria-invalid");
+    return;
+  }
+
+  if (!error) {
+    error = document.createElement("p");
+    error.className = "field-error";
+    field.appendChild(error);
+  }
+
+  error.textContent = message;
+  input.setAttribute("aria-invalid", "true");
+}
+
+function validateContactForm(form) {
+  const name = form.elements.fullName;
+  const email = form.elements.email;
+
+  let firstInvalid = null;
+
+  if (!name.value.trim()) {
+    setFieldError(name, "Please tell us your name.");
+    firstInvalid = firstInvalid || name;
+  } else {
+    setFieldError(name, "");
+  }
+
+  const emailValue = email.value.trim();
+
+  if (!emailValue) {
+    setFieldError(email, "Please add an email so we can reply.");
+    firstInvalid = firstInvalid || email;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailValue)) {
+    setFieldError(email, "That email address doesn’t look right.");
+    firstInvalid = firstInvalid || email;
+  } else {
+    setFieldError(email, "");
+  }
+
+  return firstInvalid;
+}
+
+function setContactStatus(message, state) {
+  if (!contactStatus) return;
+
+  contactStatus.textContent = message;
+  contactStatus.classList.remove("is-success", "is-error");
+
+  if (state) contactStatus.classList.add(state);
+}
+
+if (contactForm) {
+
+  ["fullName", "email"].forEach((fieldName) => {
+    const input = contactForm.elements[fieldName];
+
+    input.addEventListener("input", () => {
+      if (input.closest(".field")?.classList.contains("invalid")) {
+        setFieldError(input, "");
+      }
+    });
+  });
+
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    /* honeypot: real people never fill this in */
+    if (contactForm.elements.website.value) return;
+
+    const firstInvalid = validateContactForm(contactForm);
+
+    if (firstInvalid) {
+      setContactStatus("Please check the highlighted fields.", "is-error");
+      firstInvalid.focus();
+      return;
+    }
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalLabel = submitButton.textContent.trim();
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending…";
+    setContactStatus("");
+
+    const payload = {
+      fullName: contactForm.elements.fullName.value.trim(),
+      email: contactForm.elements.email.value.trim(),
+      phone: contactForm.elements.phone.value.trim(),
+      company: contactForm.elements.company.value.trim(),
+      city: contactForm.elements.city.value.trim(),
+      inquiryType: contactForm.elements.inquiryType.value,
+      message: contactForm.elements.message.value.trim(),
+      sourcePage: "portfolio"
+    };
+
+    try {
+      const response = await fetch(LEAD_INTAKE_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error("HTTP " + response.status);
+
+      contactForm.reset();
+
+      setContactStatus(
+        "Thank you — your message is in. We’ll get back to you shortly.",
+        "is-success"
+      );
+
+    } catch (error) {
+      console.warn("BaMo contact form could not be submitted:", error);
+
+      setContactStatus(
+        "Something went wrong sending that. Please email kathytalabis@bahaymo.com or message us on Messenger.",
+        "is-error"
+      );
+
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalLabel;
+    }
+  });
+}
+
+
+/* =========================================================
+   11. READY
    ========================================================= */
 
 document.documentElement.classList.add("js-ready");

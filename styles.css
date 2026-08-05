@@ -2347,6 +2347,16 @@ p {
     rgba(255,255,255,.68);
 }
 
+.cta-inner {
+  align-items: flex-start;
+}
+
+.cta-copy {
+  flex: 1 1 480px;
+
+  min-width: 0;
+}
+
 .cta-actions {
   display: flex;
 
@@ -2355,6 +2365,293 @@ p {
   min-width: 190px;
 
   gap: 12px;
+}
+
+
+/* --- Messenger / LinkedIn --- */
+
+.cta-socials {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.social-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding:
+    12px 18px;
+
+  border-radius: 12px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.16);
+
+  background:
+    rgba(255,255,255,.07);
+
+  color: white;
+
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(255,255,255,.3);
+}
+
+.social-messenger:hover {
+  background:
+    rgba(0,132,255,.24);
+
+  border-color:
+    rgba(0,132,255,.5);
+}
+
+.social-linkedin:hover {
+  background:
+    rgba(10,102,194,.26);
+
+  border-color:
+    rgba(10,102,194,.55);
+}
+
+.cta-direct {
+  margin-top: 20px;
+
+  font-size: 0.84rem;
+}
+
+.cta-direct a {
+  color: var(--orange-400);
+
+  font-weight: 700;
+
+  border-bottom:
+    1px solid
+    rgba(243,156,78,.4);
+}
+
+
+/* --- inquiry form --- */
+
+.cta-form {
+  flex: 0 1 460px;
+
+  width: 100%;
+
+  padding:
+    30px clamp(22px, 3vw, 32px) 28px;
+
+  border-radius: var(--radius-lg);
+
+  border:
+    1px solid
+    rgba(255,255,255,.14);
+
+  background:
+    rgba(255,255,255,.055);
+
+  backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 26px 60px
+    rgba(3,10,22,.34);
+}
+
+.cta-form h3 {
+  margin: 0 0 20px;
+
+  color: white;
+
+  font-size: 1.12rem;
+}
+
+.field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-bottom: 15px;
+}
+
+.field-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+.field label {
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+
+  color:
+    rgba(255,255,255,.7);
+}
+
+.field label span {
+  color: var(--orange-400);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+
+  padding:
+    11px 13px;
+
+  border-radius: 10px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  background:
+    rgba(7,20,38,.5);
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 0.9rem;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+
+  min-height: 92px;
+}
+
+.field select option {
+  /* native dropdown list is drawn by the OS, so it needs its own colors */
+  background: #0d2340;
+
+  color: white;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color:
+    rgba(255,255,255,.36);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+
+  border-color:
+    var(--orange-400);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(232,119,34,.22);
+}
+
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea {
+  border-color: #f08a7e;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(231,76,60,.2);
+}
+
+.field-error {
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  color: #ffb3aa;
+}
+
+/* honeypot — kept out of view without display:none, which some bots skip */
+.field-trap {
+  position: absolute;
+
+  left: -9999px;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+}
+
+.cta-form .btn {
+  width: 100%;
+
+  margin-top: 6px;
+}
+
+.cta-form .btn[disabled] {
+  opacity: .62;
+
+  cursor: progress;
+}
+
+.form-status {
+  margin: 14px 0 0;
+
+  font-size: 0.83rem;
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status.is-success {
+  color: #8ce6b0;
+}
+
+.form-status.is-error {
+  color: #ffb3aa;
+}
+
+.form-note {
+  margin: 12px 0 0;
+
+  font-size: 0.72rem;
+
+  color:
+    rgba(255,255,255,.45) !important;
 }
 
 
@@ -3018,6 +3315,16 @@ p {
     width: auto;
   }
 
+  /* the row becomes a column here, so flex-basis would size height */
+  .cta-copy,
+  .cta-form {
+    flex: 0 0 auto;
+
+    width: 100%;
+
+    max-width: 560px;
+  }
+
   .footer-inner {
     flex-wrap: wrap;
   }
@@ -3246,6 +3553,25 @@ p {
 
   .cta-actions .btn {
     width: 100%;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  /* iOS Safari zooms the page when a focused input is under 16px */
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 1rem;
+  }
+
+  .social-btn {
+    width: 100%;
+
+    justify-content: center;
   }
 
 
