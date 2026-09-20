@@ -12,8 +12,7 @@ Static, deploy-ready portfolio website package.
 You can upload this folder as-is to a new repository. For a simple Vercel deployment, import the repository and deploy it as a static site.
 
 ## Important copy choice
-Hero uses: **“BaMo — The 1st Filipino AI Virtual Assistant for Real Estate.”**
-If you later want a more legally conservative claim, change `1st Filipino` to `Filipino` in `index.html`.
+Hero uses: **“BaMo — an AI personal assistant built for Filipino real estate agents.”**
 
 ## Vision artwork
 The building is a custom inline SVG concept illustration with a BaMo sign. It is intentionally labeled as a concept, not an existing facility.

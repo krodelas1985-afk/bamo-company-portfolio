@@ -687,11 +687,11 @@ p {
     serif;
 
   font-size:
-    clamp(3.05rem, 5.4vw, 5.8rem);
+    clamp(2.85rem, 4.5vw, 4.9rem);
 
-  letter-spacing: -0.055em;
+  letter-spacing: -0.035em;
 
-  line-height: 0.99;
+  line-height: 1.08;
 }
 
 .hero h1 span {
@@ -718,37 +718,6 @@ p {
   gap: 14px;
 
   margin-top: 30px;
-}
-
-.hero-proof {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 9px;
-
-  margin-top: 28px;
-}
-
-.hero-proof span {
-  padding:
-    8px 11px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(255,255,255,.07);
-
-  border:
-    1px solid
-    rgba(255,255,255,.09);
-
-  color:
-    rgba(255,255,255,.72);
-
-  font-size: 0.73rem;
-
-  font-weight: 700;
 }
 
 
@@ -3085,8 +3054,7 @@ p {
     margin-inline: auto;
   }
 
-  .hero-actions,
-  .hero-proof {
+  .hero-actions {
     justify-content: center;
   }
 
@@ -3389,14 +3357,6 @@ p {
 
   .hero-actions .btn {
     width: 100%;
-  }
-
-  .hero-proof {
-    gap: 6px;
-  }
-
-  .hero-proof span {
-    font-size: .64rem;
   }
 
 
