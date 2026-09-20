@@ -84,6 +84,18 @@ if ("IntersectionObserver" in window) {
    3. IMAGE LIGHTBOX / SCREENSHOT ZOOM
    ========================================================= */
 
+document.querySelectorAll(".why-card").forEach((card) => {
+  let pressTimer;
+  card.addEventListener("click", () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    card.classList.remove("is-pressed");
+    void card.offsetWidth;
+    card.classList.add("is-pressed");
+    clearTimeout(pressTimer);
+    pressTimer = setTimeout(() => card.classList.remove("is-pressed"), 220);
+  });
+});
+
 const lightbox = document.getElementById("imageLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");

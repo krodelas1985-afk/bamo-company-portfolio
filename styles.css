@@ -1142,6 +1142,23 @@ p {
   box-shadow: 0 14px 35px rgba(14, 52, 102, .06);
 }
 
+.why-card.reveal.is-visible {
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+@media (hover: hover) {
+  .why-card.is-visible:hover {
+    transform: translateY(-5px);
+    border-color: #b5cdee;
+    box-shadow: 0 20px 40px rgba(14, 52, 102, .12);
+  }
+}
+
+.why-card.is-visible.is-pressed {
+  transform: scale(.98);
+  box-shadow: 0 8px 22px rgba(14, 52, 102, .12);
+}
+
 .why-icon {
   width: 76px;
   height: 76px;
@@ -1167,6 +1184,12 @@ p {
 @media (max-width: 620px) {
   .why-grid { grid-template-columns: 1fr; }
   .why-card { min-height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-card.reveal.is-visible { transition: none; }
+  .why-card.is-visible:hover,
+  .why-card.is-visible.is-pressed { transform: none; }
 }
 
 .workflow {
