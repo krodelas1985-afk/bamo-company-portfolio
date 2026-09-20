@@ -1117,6 +1117,58 @@ p {
    9. WORKFLOW
    ========================================================= */
 
+.why-section {
+  background: radial-gradient(circle at 0 30%, #eaf4ff 0, transparent 32%),
+    radial-gradient(circle at 100% 80%, #eaf4ff 0, transparent 32%), #fff;
+}
+
+.why-section .section-head { max-width: 900px; }
+.why-section h2 span { color: var(--orange-500); }
+.why-section .section-head p { max-width: 780px; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.why-card {
+  min-height: 250px;
+  padding: 28px 24px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #dce8f5;
+  border-radius: 20px;
+  box-shadow: 0 14px 35px rgba(14, 52, 102, .06);
+}
+
+.why-icon {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+  border-radius: 20px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.why-icon-blue { color: #164da4; background: #eaf4ff; }
+.why-icon-orange { color: #f4771e; background: #fff1e8; }
+.why-icon-green { color: #087b50; background: #e9f9f0; }
+.why-card h3 { margin: 0 0 7px; color: #10285c; font-size: 1.22rem; line-height: 1.3; }
+.why-card p { margin: 0; color: #3b4b68; line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .why-card { min-height: 0; }
+}
+
 .workflow {
   position: relative;
 
