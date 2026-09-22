@@ -515,4 +515,83 @@ if (contactForm) {
    11. READY
    ========================================================= */
 
+const inquiryDialog = document.getElementById("inquiryDialog");
+const inquiryForm = document.getElementById("inquiryForm");
+const inquiryStatus = document.getElementById("inquiryStatus");
+let inquiryTrigger = null;
+let inquiryType = "";
+
+if (inquiryDialog && inquiryForm) {
+  document.querySelectorAll("[data-inquiry]").forEach((button) => {
+    button.addEventListener("click", () => {
+      inquiryTrigger = button;
+      inquiryType = button.dataset.inquiry;
+      inquiryForm.reset();
+      inquiryStatus.textContent = "";
+      inquiryStatus.className = "form-status";
+      inquiryForm.querySelectorAll(".invalid").forEach((field) => field.classList.remove("invalid"));
+      document.getElementById("inquiryTitle").textContent = inquiryType;
+      inquiryDialog.showModal();
+      inquiryForm.elements.email.focus();
+    });
+  });
+
+  document.getElementById("inquiryClose").addEventListener("click", () => inquiryDialog.close());
+  inquiryDialog.addEventListener("click", (event) => {
+    if (event.target === inquiryDialog) inquiryDialog.close();
+  });
+  inquiryDialog.addEventListener("close", () => inquiryTrigger?.focus());
+
+  inquiryForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (inquiryForm.elements.website.value) return;
+
+    const email = inquiryForm.elements.email;
+    const message = inquiryForm.elements.message;
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
+    email.closest(".field").classList.toggle("invalid", !validEmail);
+    message.closest(".field").classList.toggle("invalid", !message.value.trim());
+    email.setAttribute("aria-invalid", String(!validEmail));
+    message.setAttribute("aria-invalid", String(!message.value.trim()));
+    if (!validEmail || !message.value.trim()) {
+      inquiryStatus.textContent = "Please enter a valid email and a message.";
+      inquiryStatus.className = "form-status is-error";
+      (!validEmail ? email : message).focus();
+      return;
+    }
+
+    const submitButton = inquiryForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending…";
+    inquiryStatus.textContent = "";
+    try {
+      const response = await fetch(LEAD_INTAKE_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: "Portfolio visitor",
+          email: email.value.trim(),
+          phone: "",
+          company: "",
+          city: "",
+          inquiryType,
+          message: message.value.trim(),
+          sourcePage: "portfolio"
+        })
+      });
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      inquiryForm.reset();
+      inquiryStatus.textContent = "Thank you — your message has been sent.";
+      inquiryStatus.className = "form-status is-success";
+    } catch (error) {
+      console.warn("BaMo inquiry could not be submitted:", error);
+      inquiryStatus.textContent = "Your message could not be sent. Please email kathytalabis@bahaymo.com.";
+      inquiryStatus.className = "form-status is-error";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send message";
+    }
+  });
+}
+
 document.documentElement.classList.add("js-ready");

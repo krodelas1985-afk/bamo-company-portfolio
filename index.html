@@ -1006,6 +1006,7 @@
 
 
         <div class="contact-card reveal">
+          <img class="founder-photo" src="assets/founder/katherine-rodelas-talabis.png" alt="Katherine Rodelas Talabis" loading="lazy" onerror="this.hidden=true">
 
           <div class="contact-eyebrow">
             Founder & Primary Contact
@@ -1087,8 +1088,24 @@
 
           </div>
 
+          <div class="cta-socials founder-socials">
+            <a class="social-btn social-messenger" href="https://web.facebook.com/messages/t/939438402575577" target="_blank" rel="noopener noreferrer">Message us on Messenger</a>
+            <a class="social-btn social-linkedin" href="https://www.linkedin.com/in/katherine-rodelas-talabis-4532933a0/" target="_blank" rel="noopener noreferrer">Connect with LinkedIn</a>
+          </div>
         </div>
 
+        <div class="founder-story reveal">
+          <div class="section-kicker">FOUNDER</div>
+          <h3>Katherine Rodelas Talabis</h3>
+          <p class="founder-title">Founder &amp; CEO, BaMo</p>
+          <p>For nearly a decade, Katherine has worked directly inside real estate sales and lead-management operations, supporting agents and investors across the U.S. market.</p>
+          <p>Her experience spans lead generation, CRM management, follow-up, qualification, appointment setting, sales pipelines, and real estate process automation.</p>
+          <p>BaMo was built from a problem she experienced firsthand:</p>
+          <p><strong>Real estate professionals are generating more leads, messages, and opportunities than they can consistently manage.</strong></p>
+          <p>After years of working with mature real estate systems abroad, she saw the opportunity to build something designed specifically for the Philippine market — combining AI, local workflows, lead intelligence, and automation into one simple assistant for Filipino real estate professionals.</p>
+          <p><strong>BaMo is the product of nearly 10 years of understanding how real estate professionals actually work — and what gets lost when the systems behind them are too complicated or disconnected.</strong></p>
+          <blockquote>“The goal is not to make agents learn more technology. The goal is to make powerful technology simple enough to work for them.”</blockquote>
+        </div>
       </div>
 
     </section>
@@ -1116,48 +1133,8 @@
           </p>
 
           <div class="cta-socials">
-
-            <a
-              class="social-btn social-messenger"
-              href="https://web.facebook.com/messages/t/939438402575577"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path
-                  fill="currentColor"
-                  d="M12 2C6.3 2 2 6.2 2 11.7c0 3.1 1.4 5.9 3.7 7.7v3.8l3.4-1.9c.9.3 1.9.4 2.9.4 5.7 0 10-4.2 10-9.9C22 6.2 17.7 2 12 2Zm1 13.1-2.6-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7-5.4 5.8Z"
-                />
-              </svg>
-
-              <span>
-                Message us on Messenger
-              </span>
-
-            </a>
-
-
-            <a
-              class="social-btn social-linkedin"
-              href="https://www.linkedin.com/in/katherine-rodelas-talabis-4532933a0/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path
-                  fill="currentColor"
-                  d="M20.4 2H3.6C2.7 2 2 2.7 2 3.5v17c0 .8.7 1.5 1.6 1.5h16.8c.9 0 1.6-.7 1.6-1.5v-17c0-.8-.7-1.5-1.6-1.5ZM8 19H5V9.5h3V19ZM6.5 8.2a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5ZM19 19h-3v-4.6c0-1.1 0-2.5-1.6-2.5s-1.8 1.2-1.8 2.4V19h-3V9.5h2.9v1.3h.05c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.65 2 3.65 4.6V19Z"
-                />
-              </svg>
-
-              <span>
-                Connect on LinkedIn
-              </span>
-
-            </a>
-
+            <button class="btn" type="button" data-inquiry="Talk to the Founder">Talk to the Founder</button>
+            <button class="btn btn-ghost" type="button" data-inquiry="Request Investor Deck">Request Investor Deck</button>
           </div>
 
           <p class="cta-direct">
@@ -1370,6 +1347,28 @@
     </div>
 
   </footer>
+
+<dialog class="inquiry-dialog" id="inquiryDialog" aria-labelledby="inquiryTitle">
+  <form class="inquiry-dialog-form" id="inquiryForm" novalidate>
+    <button class="dialog-close" type="button" id="inquiryClose" aria-label="Close contact form">×</button>
+    <p class="section-kicker">CONTACT BAMO</p>
+    <h2 id="inquiryTitle">Talk to the Founder</h2>
+    <div class="field">
+      <label for="inquiryEmail">Email</label>
+      <input id="inquiryEmail" name="email" type="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="inquiryMessage">Message</label>
+      <textarea id="inquiryMessage" name="message" rows="4" required></textarea>
+    </div>
+    <div class="field field-trap" aria-hidden="true">
+      <label for="inquiryWebsite">Leave this field empty</label>
+      <input id="inquiryWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+    <button class="btn" type="submit">Send message</button>
+    <p class="form-status" id="inquiryStatus" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
 
 <!-- IMAGE LIGHTBOX -->
 <div
