@@ -2147,6 +2147,25 @@ p {
   align-items: center;
 }
 
+.founder-story { grid-column: 1 / -1; max-width: 850px; }
+.founder-story h3 { margin: 12px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.founder-story p { margin: 14px 0; }
+.founder-story .founder-title { color: var(--navy-700); font-weight: 800; }
+.founder-story blockquote { margin: 26px 0 0; padding: 18px 24px; border-left: 4px solid var(--orange-400); background: white; font-size: 1.1rem; font-weight: 700; }
+.founder-photo { display: block; width: 100%; max-height: 360px; margin: 0 0 24px; border-radius: 14px; object-fit: cover; object-position: center 30%; }
+.founder-photo[hidden] { display: none; }
+.founder-socials { position: relative; }
+.founder-socials .social-btn { border-color: rgba(255,255,255,.3); }
+
+.inquiry-dialog { width: min(100% - 32px, 480px); max-height: min(90vh, 700px); padding: 0; border: 0; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: auto; }
+.inquiry-dialog::backdrop { background: rgba(6,24,43,.72); }
+.inquiry-dialog-form { position: relative; padding: clamp(24px, 5vw, 36px); background: white; }
+.inquiry-dialog h2 { margin: 0 0 24px; font-size: clamp(1.5rem, 5vw, 2rem); }
+.inquiry-dialog .field { margin-bottom: 18px; }
+.inquiry-dialog .field input, .inquiry-dialog .field textarea { width: 100%; }
+.inquiry-dialog .dialog-close { position: absolute; top: 12px; right: 16px; border: 0; background: transparent; color: var(--navy-800); font-size: 2rem; cursor: pointer; }
+.inquiry-dialog .btn { width: 100%; }
+
 .company-copy p {
   max-width: 700px;
 

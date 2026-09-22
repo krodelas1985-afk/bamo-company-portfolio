@@ -8,6 +8,12 @@ Static, deploy-ready portfolio website package.
 - `script.js` — mobile nav + scroll reveal
 - `assets/screens/` — BaMo Mobile App, Campaign Engine, CRM and Ads Manager screenshots
 
+## Contact delivery
+
+The existing contact form and the two short CTA forms submit to the BaMo n8n lead-intake webhook configured in `script.js`. The webhook must accept `inquiryType` values `Talk to the Founder` and `Request Investor Deck` and email each submission to `kathytalabis@bahaymo.com`. Verify that recipient in the n8n workflow before publishing; the website cannot confirm the workflow's private email settings. No email credentials belong in this static repository.
+
+The founder image belongs at `assets/founder/katherine-rodelas-talabis.png`.
+
 ## Upload to GitHub / Vercel
 You can upload this folder as-is to a new repository. For a simple Vercel deployment, import the repository and deploy it as a static site.
 
