@@ -3758,3 +3758,19 @@ button:focus-visible {
   .contact-list { grid-template-columns: 1fr; }
   .inquiry-dialog { width: calc(100% - 24px); }
 }
+
+/* Technology is retained in the source for a later release. */
+#technology[hidden] { display: none !important; }
+
+.founder-socials .social-messenger {
+  background: #087cf2;
+  border-color: #087cf2;
+  color: #fff;
+}
+.founder-socials .social-linkedin {
+  background: #0a66c2;
+  border-color: #0a66c2;
+  color: #fff;
+}
+.founder-socials .social-messenger:hover { background: #006bd6; border-color: #006bd6; }
+.founder-socials .social-linkedin:hover { background: #084f96; border-color: #084f96; }
