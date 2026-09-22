@@ -1174,6 +1174,18 @@ p {
 .why-icon-blue { color: #164da4; background: #eaf4ff; }
 .why-icon-orange { color: #f4771e; background: #fff1e8; }
 .why-icon-green { color: #087b50; background: #e9f9f0; }
+/* Show the six original icon drawings directly from the supplied artwork. */
+.why-icon {
+  background-image: url("assets/illustrations/bamo-advantage-reference.png");
+  background-repeat: no-repeat;
+  background-size: 1144px 644px;
+}
+.why-icon-local { background-position: -251px -223px; }
+.why-icon-vertical { background-position: -534px -223px; }
+.why-icon-workflow { background-position: -818px -223px; }
+.why-icon-data { background-position: -251px -433px; }
+.why-icon-distribution { background-position: -534px -433px; }
+.why-icon-ecosystem { background-position: -818px -433px; }
 .why-card h3 { margin: 0 0 7px; color: #10285c; font-size: 1.22rem; line-height: 1.3; }
 .why-card p { margin: 0; color: #3b4b68; line-height: 1.5; }
 
