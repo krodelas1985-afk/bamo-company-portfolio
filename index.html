@@ -129,59 +129,57 @@
           </div>
         </div>
 
-        <div class="showcase-label">
-          Mobile App — what agents use every day
+        <div class="gallery-toolbar" id="gallery-toolbar" hidden>
+          <div class="gallery-tabs" role="tablist" aria-label="Product screenshot views">
+            <button type="button" role="tab" id="mobile-tab" aria-controls="mobile-panel" aria-selected="true">Mobile app</button>
+            <button type="button" role="tab" id="operations-tab" aria-controls="operations-panel" aria-selected="false" tabindex="-1">Backend / Operations</button>
+          </div>
+          <p class="gallery-context" id="gallery-context">What agents use every day</p>
         </div>
+        <div id="mobile-panel" class="gallery-panel" role="tabpanel" aria-labelledby="mobile-tab" tabindex="0">
+          <div class="phone-rail" role="region" aria-label="Mobile app screenshots" tabindex="0">
 
-
-        <div class="phone-rail">
-
-          <figure class="app-shot reveal">
+          <figure class="app-shot">
             <img src="assets/screens/home.png" alt="BayMo home">
             <figcaption>AI Assistant Home</figcaption>
           </figure>
 
-          <figure class="app-shot reveal">
+          <figure class="app-shot">
             <img src="assets/screens/sign-in.png" alt="BaMo sign-in screen">
             <figcaption>Sign In</figcaption>
           </figure>
 
-          <figure class="app-shot reveal">
+          <figure class="app-shot">
             <img src="assets/screens/lead-detail.png" alt="Lead profile">
             <figcaption>Lead Profile</figcaption>
           </figure>
 
-          <figure class="app-shot reveal">
+          <figure class="app-shot">
             <img src="assets/screens/tasks.png" alt="Tasks">
             <figcaption>Tasks</figcaption>
           </figure>
 
-          <figure class="app-shot reveal">
+          <figure class="app-shot">
             <img src="assets/screens/social.png" alt="Social media">
             <figcaption>Social Media</figcaption>
           </figure>
 
-          <figure class="app-shot reveal">
+          <figure class="app-shot">
             <img src="assets/screens/post-compose.png" alt="Create a post">
             <figcaption>AI Content</figcaption>
           </figure>
 
-          <figure class="app-shot reveal">
+          <figure class="app-shot">
             <img src="assets/screens/listing.png" alt="Post a property">
             <figcaption>AI Listing Generator</figcaption>
           </figure>
 
         </div>
-
-
-        <div class="showcase-label backend-label">
-          Backend / Operations — what powers the system
         </div>
+        <div id="operations-panel" class="gallery-panel" role="tabpanel" aria-labelledby="operations-tab" tabindex="0">
+          <div class="backend-grid">
 
-
-        <div class="backend-grid">
-
-          <figure class="backend-shot reveal">
+          <figure class="backend-shot">
 
             <img
               src="assets/screens/crm-dashboard.png"
@@ -203,7 +201,7 @@
           </figure>
 
 
-          <figure class="backend-shot reveal">
+          <figure class="backend-shot">
 
             <img
               src="assets/screens/crm-leads.png"
@@ -225,7 +223,7 @@
           </figure>
 
 
-          <figure class="backend-shot reveal">
+          <figure class="backend-shot">
 
             <img
               src="assets/screens/ads-manager.png"
@@ -247,6 +245,8 @@
           </figure>
 
         </div>
+        </div>
+        <p class="gallery-note">Product screens · personal data privacy-blurred · click to enlarge</p>
 
       </div>
 

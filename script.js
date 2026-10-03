@@ -9,6 +9,35 @@
    ========================================================= */
 
 const menuToggle = document.querySelector(".menu-toggle");
+const galleryTabs = Array.from(document.querySelectorAll('.gallery-tabs [role="tab"]'));
+if (galleryTabs.length) {
+  const context = document.getElementById("gallery-context");
+  const activateGallery = (activeTab) => {
+    galleryTabs.forEach((tab) => {
+      const selected = tab === activeTab;
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      document.getElementById(tab.getAttribute("aria-controls")).hidden = !selected;
+    });
+    context.textContent = activeTab.id === "mobile-tab" ? "What agents use every day" : "What powers the system";
+  };
+  document.getElementById("gallery-toolbar").hidden = false;
+  activateGallery(galleryTabs[0]);
+  galleryTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => activateGallery(tab));
+    tab.addEventListener("keydown", (event) => {
+      let next;
+      if (event.key === "ArrowRight") next = (index + 1) % galleryTabs.length;
+      if (event.key === "ArrowLeft") next = (index + galleryTabs.length - 1) % galleryTabs.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = galleryTabs.length - 1;
+      if (next === undefined) return;
+      event.preventDefault();
+      activateGallery(galleryTabs[next]);
+      galleryTabs[next].focus();
+    });
+  });
+}
 const siteNav = document.querySelector(".site-nav");
 
 if (menuToggle && siteNav) {
