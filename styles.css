@@ -3928,3 +3928,13 @@ button:focus-visible {
 }
 
 #how .step-icon img { width: 72px; height: 72px; object-fit: contain; }
+
+/* BayMo mascot introduction */
+#assistant .baymo-intro { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 48px; align-items: center; max-width: 1100px; margin-inline: auto; }
+#assistant .baymo-mascot { display: block; width: 100%; height: auto; }
+#assistant .baymo-intro-copy p { margin-inline: 0; }
+@media (max-width: 700px) {
+  #assistant .baymo-intro { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  #assistant .baymo-mascot { width: 200px; margin-inline: auto; }
+  #assistant .baymo-intro-copy p { margin-inline: auto; }
+}
