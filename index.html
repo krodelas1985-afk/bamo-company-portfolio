@@ -38,6 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
+  <link rel="preload" as="image" href="assets/hero/bamo-ecosystem.webp" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -78,66 +79,172 @@
   <main>
 
     <!-- HERO -->
-    <section class="hero">
-
-      <div class="hero-glow glow-a"></div>
-      <div class="hero-glow glow-b"></div>
-
-      <div class="container hero-grid">
-
-        <div class="hero-copy reveal">
-
-          <div class="eyebrow">
-            🇵🇭 Proudly Filipino. Built for Philippine Real Estate.
-          </div>
-
-          <h1>Making <span>innovation accessible</span> to Philippine real estate.</h1>
-
-          <p class="hero-lede">BaMo is building a technology and innovation platform that helps Filipino real estate professionals adapt, compete, and grow in the AI era.</p>
-          <p class="hero-support">Practical AI tools and connected real estate workflows today. Industry education and collaboration as we grow — so agents, brokers, developers, and sales teams can navigate digital transformation together.</p>
-          <p class="hero-product">Our first major platform: the <strong>BaMo AI-powered real estate operating system</strong>, connecting inquiries, follow-ups, listings, marketing, campaigns, and daily sales operations.</p>
-
+    <section class="hero hero-ecosystem" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <div class="eyebrow">PHILIPPINE REAL ESTATE × TECHNOLOGY × AI</div>
+          <h1 id="hero-title">Making <span>innovation</span> accessible to Philippine real estate.</h1>
+          <p class="hero-lede">BaMo brings AI, technology, and practical innovation closer to the people building and selling Philippine real estate.</p>
           <div class="hero-actions">
             <a class="btn" href="#platform">Explore BaMo</a>
             <a class="btn btn-ghost" href="#partnerships">Partner With Us</a>
-            <button class="hero-investor" type="button" data-inquiry="Request Investor Deck">Request Investor Deck ↗</button>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM -->
+    <section class="section" id="platform">
+
+      <div class="container">
+
+        <div class="section-head centered reveal">
+
+          <div class="section-kicker">
+            FROM VISION TO PRACTICAL TECHNOLOGY
+          </div>
+
+          <h2>
+            We started with one of real estate’s biggest problems: managing leads.
+          </h2>
+
+          <p>
+            BaMo’s first platform brings AI assistance, CRM, lead management,
+            follow-ups, marketing, and real estate workflows into one connected system.
+          </p>
 
         </div>
 
 
-        <div class="hero-visual reveal" aria-label="BaMo product screenshots">
+        <div class="platform-scope reveal">
+          <div>
+            <span class="availability">Available today</span>
+            <h3>One connected real estate operating platform</h3>
+            <p>BayMo AI assistance, CRM and lead management, lead temperature and prioritization, automated follow-ups, listings, tasks, content tools, and campaign workflows. The screens below show the existing product.</p>
+          </div>
+          <div>
+            <span class="availability planned">In development / roadmap</span>
+            <h3>The wider ecosystem</h3>
+            <p>Broader marketplace infrastructure, learning programs, community initiatives, and innovation events. These are planned extensions of the platform.</p>
+          </div>
+        </div>
 
-          <div class="screen-card desktop desktop-a">
+        <div class="showcase-label">
+          Mobile App — what agents use every day
+        </div>
+
+
+        <div class="phone-rail">
+
+          <figure class="app-shot reveal">
+            <img src="assets/screens/home.png" alt="BayMo home">
+            <figcaption>AI Assistant Home</figcaption>
+          </figure>
+
+          <figure class="app-shot reveal">
+            <img src="assets/screens/sign-in.png" alt="BaMo sign-in screen">
+            <figcaption>Sign In</figcaption>
+          </figure>
+
+          <figure class="app-shot reveal">
+            <img src="assets/screens/lead-detail.png" alt="Lead profile">
+            <figcaption>Lead Profile</figcaption>
+          </figure>
+
+          <figure class="app-shot reveal">
+            <img src="assets/screens/tasks.png" alt="Tasks">
+            <figcaption>Tasks</figcaption>
+          </figure>
+
+          <figure class="app-shot reveal">
+            <img src="assets/screens/social.png" alt="Social media">
+            <figcaption>Social Media</figcaption>
+          </figure>
+
+          <figure class="app-shot reveal">
+            <img src="assets/screens/post-compose.png" alt="Create a post">
+            <figcaption>AI Content</figcaption>
+          </figure>
+
+          <figure class="app-shot reveal">
+            <img src="assets/screens/listing.png" alt="Post a property">
+            <figcaption>AI Listing Generator</figcaption>
+          </figure>
+
+        </div>
+
+
+        <div class="showcase-label backend-label">
+          Backend / Operations — what powers the system
+        </div>
+
+
+        <div class="backend-grid">
+
+          <figure class="backend-shot reveal">
+
             <img
               src="assets/screens/crm-dashboard.png"
-              alt="BaMo Campaign Engine dashboard"
+              alt="Campaign Engine Dashboard"
             >
-          </div>
 
-          <div class="screen-card desktop desktop-b">
+            <figcaption>
+
+              <strong>
+                Campaign Engine
+              </strong>
+
+              <span>
+                Lead activity, conversations, campaigns, tasks and follow-ups.
+              </span>
+
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="backend-shot reveal">
+
+            <img
+              src="assets/screens/crm-leads.png"
+              alt="Leads CRM"
+            >
+
+            <figcaption>
+
+              <strong>
+                Lead CRM
+              </strong>
+
+              <span>
+                Lead temperature, stage, source and operational status.
+              </span>
+
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="backend-shot reveal">
+
             <img
               src="assets/screens/ads-manager.png"
-              alt="BaMo Ads Manager dashboard"
+              alt="Ads Manager"
             >
-          </div>
 
-          <div class="screen-card phone phone-a">
-            <img
-              src="assets/screens/sign-in.png"
-              alt="BaMo mobile sign-in screen"
-            >
-          </div>
+            <figcaption>
 
-          <div class="screen-card phone phone-main">
-            <img
-              src="assets/screens/home.png"
-              alt="BayMo AI assistant mobile home"
-            >
-          </div>
+              <strong>
+                Ads Manager
+              </strong>
 
-          <div class="tech-orbit orbit-one"></div>
-          <div class="tech-orbit orbit-two"></div>
+              <span>
+                Content, creatives, listings, posts, campaigns and reporting.
+              </span>
+
+            </figcaption>
+
+          </figure>
 
         </div>
 
@@ -324,165 +431,7 @@
     </section>
 
 
-    <!-- PLATFORM -->
-    <section class="section" id="platform">
 
-      <div class="container">
-
-        <div class="section-head centered reveal">
-
-          <div class="section-kicker">
-            SEE BAMO IN ACTION
-          </div>
-
-          <h2>
-            Real screens. Real workflows. One connected system.
-          </h2>
-
-          <p>
-            Clients work mainly through the mobile experience, while
-            BaMo’s operational backend supports campaigns, lead management,
-            automation, and marketing execution.
-          </p>
-
-        </div>
-
-
-        <div class="platform-scope reveal">
-          <div>
-            <span class="availability">Available today</span>
-            <h3>One connected real estate operating platform</h3>
-            <p>BayMo AI assistance, CRM and lead management, lead temperature and prioritization, automated follow-ups, listings, tasks, content tools, and campaign workflows. The screens below show the existing product.</p>
-          </div>
-          <div>
-            <span class="availability planned">In development / roadmap</span>
-            <h3>The wider ecosystem</h3>
-            <p>Broader marketplace infrastructure, learning programs, community initiatives, and innovation events. These are planned extensions of the platform.</p>
-          </div>
-        </div>
-
-        <div class="showcase-label">
-          Mobile App — what agents use every day
-        </div>
-
-
-        <div class="phone-rail">
-
-          <figure class="app-shot reveal">
-            <img src="assets/screens/home.png" alt="BayMo home">
-            <figcaption>AI Assistant Home</figcaption>
-          </figure>
-
-          <figure class="app-shot reveal">
-            <img src="assets/screens/sign-in.png" alt="BaMo sign-in screen">
-            <figcaption>Sign In</figcaption>
-          </figure>
-
-          <figure class="app-shot reveal">
-            <img src="assets/screens/lead-detail.png" alt="Lead profile">
-            <figcaption>Lead Profile</figcaption>
-          </figure>
-
-          <figure class="app-shot reveal">
-            <img src="assets/screens/tasks.png" alt="Tasks">
-            <figcaption>Tasks</figcaption>
-          </figure>
-
-          <figure class="app-shot reveal">
-            <img src="assets/screens/social.png" alt="Social media">
-            <figcaption>Social Media</figcaption>
-          </figure>
-
-          <figure class="app-shot reveal">
-            <img src="assets/screens/post-compose.png" alt="Create a post">
-            <figcaption>AI Content</figcaption>
-          </figure>
-
-          <figure class="app-shot reveal">
-            <img src="assets/screens/listing.png" alt="Post a property">
-            <figcaption>AI Listing Generator</figcaption>
-          </figure>
-
-        </div>
-
-
-        <div class="showcase-label backend-label">
-          Backend / Operations — what powers the system
-        </div>
-
-
-        <div class="backend-grid">
-
-          <figure class="backend-shot reveal">
-
-            <img
-              src="assets/screens/crm-dashboard.png"
-              alt="Campaign Engine Dashboard"
-            >
-
-            <figcaption>
-
-              <strong>
-                Campaign Engine
-              </strong>
-
-              <span>
-                Lead activity, conversations, campaigns, tasks and follow-ups.
-              </span>
-
-            </figcaption>
-
-          </figure>
-
-
-          <figure class="backend-shot reveal">
-
-            <img
-              src="assets/screens/crm-leads.png"
-              alt="Leads CRM"
-            >
-
-            <figcaption>
-
-              <strong>
-                Lead CRM
-              </strong>
-
-              <span>
-                Lead temperature, stage, source and operational status.
-              </span>
-
-            </figcaption>
-
-          </figure>
-
-
-          <figure class="backend-shot reveal">
-
-            <img
-              src="assets/screens/ads-manager.png"
-              alt="Ads Manager"
-            >
-
-            <figcaption>
-
-              <strong>
-                Ads Manager
-              </strong>
-
-              <span>
-                Content, creatives, listings, posts, campaigns and reporting.
-              </span>
-
-            </figcaption>
-
-          </figure>
-
-        </div>
-
-      </div>
-
-    </section>
 
 
     <!-- AI ASSISTANT -->

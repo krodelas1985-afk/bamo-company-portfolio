@@ -3834,3 +3834,42 @@ button:focus-visible {
   .mission-panel { padding-left: 18px; }
   .hero-support, .hero-product { font-size: .94rem; }
 }
+/* Supplied ecosystem artwork: the illustration is a background, not rebuilt UI. */
+.hero.hero-ecosystem {
+  min-height: 80svh;
+  padding: 70px 0;
+  background-color: #061c38;
+  background-image: linear-gradient(90deg, rgba(3, 18, 39, .75) 0%, rgba(3, 18, 39, .5) 38%, rgba(3, 18, 39, .08) 65%, transparent 100%), url("assets/hero/bamo-ecosystem.webp");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+.hero-ecosystem::before, .hero-ecosystem::after { content: none; }
+.hero-ecosystem .hero-content { width: 92%; max-width: 1700px; position: relative; }
+.hero-ecosystem .hero-copy { width: 49%; max-width: 850px; margin: 0; text-align: left; }
+.hero-ecosystem .eyebrow { border: 0; border-radius: 0; padding: 0; background: none; font-size: clamp(.65rem, .85vw, .85rem); letter-spacing: .09em; color: #d9e5f5; }
+.hero-ecosystem h1 { font-size: clamp(2.6rem, 3.3vw, 4rem); line-height: 1.14; text-wrap: balance; margin-bottom: 24px; }
+.hero-ecosystem .hero-lede { font-size: clamp(1rem, 1.2vw, 1.18rem); line-height: 1.75; max-width: 590px; margin: 0; color: #e1e9f4; }
+.hero-ecosystem .hero-actions { justify-content: flex-start; margin-top: 28px; }
+.hero-ecosystem .hero-actions .btn:not(.btn-ghost) { color: #071c37; }
+.hero-ecosystem .btn-ghost { background: rgba(4, 20, 42, .35); border-color: rgba(219, 231, 248, .45); }
+@media (max-width: 1100px) {
+  .hero.hero-ecosystem { min-height: 660px; background-size: 100% 100%, cover; background-position: center, right center; }
+  .hero-ecosystem .hero-copy { width: 47%; }
+  .hero-ecosystem .hero-lede { max-width: 360px; }
+  .hero-ecosystem h1 { font-size: clamp(2.25rem, 3.7vw, 2.7rem); }
+}
+@media (max-width: 900px) {
+  .hero.hero-ecosystem { min-height: 0; padding: 55px 0 435px; background-image: linear-gradient(180deg, #061c38 0%, rgba(6, 28, 56, .95) 46%, rgba(6, 28, 56, .12) 70%, transparent 100%), url("assets/hero/bamo-ecosystem.webp"); background-size: 100% 100%, auto 435px; }
+  .hero-ecosystem .hero-copy { width: 100%; max-width: 640px; }
+  .hero-ecosystem .hero-lede { max-width: 590px; }
+  .hero-ecosystem h1 { font-size: clamp(2.5rem, 5vw, 3.4rem); }
+}
+@media (max-width: 620px) {
+  .hero.hero-ecosystem { padding: 45px 0 345px; background-size: 100% 100%, auto 345px; }
+  .hero-ecosystem .hero-content { width: calc(100% - 36px); }
+  .hero-ecosystem h1 { font-size: clamp(2rem, 8.5vw, 2.7rem); }
+  .hero-ecosystem .eyebrow { font-size: .61rem; letter-spacing: .055em; }
+  .hero-ecosystem .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-ecosystem .hero-actions .btn { width: 100%; }
+}
