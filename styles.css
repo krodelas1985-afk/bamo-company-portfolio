@@ -3938,3 +3938,5 @@ button:focus-visible {
   #assistant .baymo-mascot { width: 200px; margin-inline: auto; }
   #assistant .baymo-intro-copy p { margin-inline: auto; }
 }
+
+.difference-extra .difference-icon { display: block; width: 76px; height: 76px; object-fit: contain; border-radius: 20px; margin-bottom: 18px; }
