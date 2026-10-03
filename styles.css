@@ -3926,3 +3926,5 @@ button:focus-visible {
 @media (max-width: 620px) {
   #about { background-image: linear-gradient(180deg, rgba(4, 18, 33, .88), rgba(4, 18, 33, .92)), url("assets/about/why-bamo-mobile.webp"); background-position: center; }
 }
+
+#how .step-icon img { width: 72px; height: 72px; object-fit: contain; }
