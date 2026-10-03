@@ -30,7 +30,7 @@ Verify desktop, tablet and mobile layouts, menu behavior, image zoom, inquiry pa
 
 ## Current versus planned
 
-Screenshots illustrate the existing operating platform. Learning programs, community initiatives, broader marketplace development and additional revenue opportunities are labeled planned or in development. Innovation in Action Summit 2026 is planned for November 11, 2026 in Lipa City, Batangas. Venue details, registration, speakers, agenda and sponsorship packages await confirmation. No speakers, sponsors or new revenue figures are claimed.
+Screenshots illustrate the existing operating platform. Learning programs, community initiatives, broader marketplace development and additional revenue opportunities are labeled planned or in development. BaMo Real Estate Innovation Summit 2026 is planned for November 11, 2026 in Lipa City, Batangas. Venue details, registration, speakers, agenda and sponsorship packages await confirmation. No speakers, sponsors or new revenue figures are claimed.
 
 ## Operating metrics
 
@@ -45,3 +45,7 @@ HTTP acceptance does not verify the private workflow's email delivery. Confirm t
 ## Preserved assets and scope
 
 Screenshots remain interactive and privacy blurred. Katherine's portrait and existing contact links are retained. Vision artwork remains labeled a concept, not an existing facility. Unverified technology-vendor claims from the previously hidden section are not presented as a verified stack.
+
+## Plan alignment correction
+
+The Business Model explicitly presents SaaS Subscriptions, Team / Enterprise, Marketing / Growth Services, and Embedded Systems. Team offerings and embedded delivery can overlap and are not counted as distinct earned revenue. Marketplace, Training & Industry Programs, and Events & Partnerships are clearly labeled future/developing. The ecosystem pillar descriptions, philosophy, platform availability summary, vision, summit name, and Business Model navigation now follow the approved brief more closely.
