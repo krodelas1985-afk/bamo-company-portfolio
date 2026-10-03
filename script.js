@@ -21,6 +21,7 @@ if (menuToggle && siteNav) {
     );
 
     menuToggle.textContent = isOpen ? "×" : "☰";
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
   });
 
   /* Close menu after clicking a nav link */
@@ -29,6 +30,7 @@ if (menuToggle && siteNav) {
       siteNav.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-label", "Open navigation");
     });
   });
 
@@ -41,6 +43,17 @@ if (menuToggle && siteNav) {
       siteNav.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-label", "Open navigation");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && siteNav.classList.contains("is-open")) {
+      siteNav.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      menuToggle.textContent = "☰";
+      menuToggle.focus();
     }
   });
 }

@@ -1,0 +1,9 @@
+{
+  "name": "bamo-company-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "node --check script.js && node scripts/build.mjs --check",
+    "build": "node scripts/build.mjs"
+  }
+}
